@@ -10,7 +10,7 @@ def main [] {
 
 def process-file [file: record<name: string, type: string, size: filesize, modified: datetime>] {
     try {
-        let NewName = $"($file.name | parse "templates\\{name}.template.env" | get name.0).env"
+        let NewName = $"($file.name | path parse | get stem | split row ".template" | get 0).env"
         let NewFilePath = $"./env/($NewName)"
         if not ($NewFilePath | path exists) {
             cp -n $file.name $NewFilePath
