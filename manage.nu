@@ -45,9 +45,7 @@ export def send [serviceName?: string] {
 	}
 }
 
-export def up [
-	Environment: string	
-] {
+export def up [] {
 	secrets-update
 	deploy
 }
