@@ -5,7 +5,7 @@ def main [] {
     if (which openssl | is-empty) {
         print $"(ansi red) ERROR: openssl not available. Check $env.PATH(ansi reset)"
     }
-  dirs add "../secrets"
+  dirs add "secrets"
   mut Output = "Ключи уже существуют"
   
   # Создаем папку keys, если её нет

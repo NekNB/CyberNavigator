@@ -1,12 +1,8 @@
 github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
 github.com/BurntSushi/toml v1.6.0 h1:dRaEfpa2VI55EwlIW72hMRHdWouJeRF7TPYhI+AUQjk=
 github.com/BurntSushi/toml v1.6.0/go.mod h1:ukJfTF/6rtPPRCnwkur4qwRxa8vTRFBF0uk2lLoLwho=
-github.com/NekNB/CyberNavigator/swagger v0.0.0-20260514194000-4fb2f559eb44 h1:uH9HiwGVCEHn/pLPWlcBgxbK/G3NT9uA8r38/vF2qQA=
-github.com/NekNB/CyberNavigator/swagger v0.0.0-20260514194000-4fb2f559eb44/go.mod h1:EXRgzAUM1cYuXrA1MWbdzbGDk0hkRp0Kl/aClcxupQE=
-github.com/NekNB/CyberNavigator/swagger v0.0.0-20260726165358-8ee64d6f4184 h1:RHsV3gqdLFdrYsGZt3Mzp3zmLKPIJj7bQwDzpEefN2c=
-github.com/NekNB/CyberNavigator/swagger v0.0.0-20260726165358-8ee64d6f4184/go.mod h1:EXRgzAUM1cYuXrA1MWbdzbGDk0hkRp0Kl/aClcxupQE=
-github.com/NekNB/CyberNavigator/swagger v0.0.0-20260726173518-7019cb482795 h1:h+Lc0inePRurbxRf4uORrAKxmB0Vzm7VzU7AhssSW8Y=
-github.com/NekNB/CyberNavigator/swagger v0.0.0-20260726173518-7019cb482795/go.mod h1:EXRgzAUM1cYuXrA1MWbdzbGDk0hkRp0Kl/aClcxupQE=
+github.com/NekNB/CyberNavigator/swagger v0.0.0-20261107181142-6a1d26e14fa1 h1:4OIaGv0Q2mg/PJxQHd6b7xu2Pzh3rmBQcUZ12xve1II=
+github.com/NekNB/CyberNavigator/swagger v0.0.0-20261107181142-6a1d26e14fa1/go.mod h1:ol0wpuQ6iGnzY5Lrn9ZjNrh5f+F207Oun8IxF60wPLQ=
 github.com/andybalholm/brotli v1.2.1 h1:R+f5xP285VArJDRgowrfb9DqL18yVK0gKAW/F+eTWro=
 github.com/andybalholm/brotli v1.2.1/go.mod h1:rzTDkvFWvIrjDXZHkuS16NPggd91W3kUSvPlQ1pLaKY=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

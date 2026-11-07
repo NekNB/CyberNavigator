@@ -1,5 +1,5 @@
 *.env
-!*.tmp.env
+!*.template.env
 bin/*
 
 

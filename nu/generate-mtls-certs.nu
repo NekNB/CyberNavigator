@@ -1,6 +1,6 @@
 # --- Основной скрипт ---
 def main [
-    CertsPath?: string = "../secrets/certs"
+    CertsPath?: string = "secrets/certs"
     DaysValid?: string = "365"
 ] {
 

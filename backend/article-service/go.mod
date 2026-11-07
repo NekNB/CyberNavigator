@@ -3,7 +3,7 @@ module github.com/NekNB/CyberNavigator/backend/article-service
 go 1.27.1
 
 require (
-	github.com/NekNB/CyberNavigator/swagger v0.0.0-20261004074443-6cf6d2bb79b9
+	github.com/NekNB/CyberNavigator/swagger v0.0.0-20261107181142-6a1d26e14fa1
 	github.com/gofiber/fiber/v3 v3.2.0
 	github.com/gosimple/slug v1.15.0
 	github.com/ilyakaznacheev/cleanenv v1.5.0

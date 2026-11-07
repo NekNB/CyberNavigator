@@ -1,7 +1,7 @@
 use std/dirs
 
 def main [] {
-    dirs add "../secrets"
+    dirs add "secrets"
     mkdir env
     ls ./templates/*.template.env | each {|file| process-file $file}
     dirs drop    
