@@ -12,6 +12,7 @@ const Footer: FC = () => {
       <a href="tel:+79960505076" className={styles.contacts}>
         +7-996-050-50-76
       </a>
+      <a href="https://github.com/NekNB/CyberNavigate">Github Repo</a>
     </div>
   );
 };
