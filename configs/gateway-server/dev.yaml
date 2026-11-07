@@ -9,22 +9,22 @@ server:
     - article-service:
         path: /api/v1/articles
         protocol: https
-        host: cyber-navigate_article-service
+        host: cyber-navigator_article-service
         port: 8000
     - user-service:
         path: /api/v1/users
         protocol: https
-        host: cyber-navigate_user-service
+        host: cyber-navigator_user-service
         port: 8000
     - user-service:
         path: /api/v1/auth
         protocol: https
-        host: cyber-navigate_user-service
+        host: cyber-navigator_user-service
         port: 8000
     - simulator-service:
         path: /api/v1/simulator
         protocol: https
-        host: cyber-navigate_simulator-service
+        host: cyber-navigator_simulator-service
         port: 8000
   allow_headers:
     - "X-User-Id"

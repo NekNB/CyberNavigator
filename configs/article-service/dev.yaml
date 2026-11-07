@@ -7,13 +7,13 @@ http:
 storages:
   postgres:
     database: article_service_db
-    host: cyber-navigate_postgres
+    host: cyber-navigator_postgres
     port: 5432
     user: article_service_role
 
   mongo:
     database: article-storage
-    host: cyber-navigate_mongo
+    host: cyber-navigator_mongo
     port: 27017
     user: articleService
     collection: articles

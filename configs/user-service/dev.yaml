@@ -7,7 +7,7 @@ http:
 storages:
   postgres:
     database: user_service_db
-    host: cyber-navigate_postgres
+    host: cyber-navigator_postgres
     port: 5432
     user: user_service_role
 tokens:

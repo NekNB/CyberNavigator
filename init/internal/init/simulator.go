@@ -3,8 +3,8 @@ package init
 import (
 	"io/fs"
 
-	"github.com/NekNB/CyberNavigate/init/internal/assets"
-	"github.com/NekNB/CyberNavigate/init/internal/http"
+	"github.com/NekNB/CyberNavigator/init/internal/assets"
+	"github.com/NekNB/CyberNavigator/init/internal/http"
 	"github.com/sirupsen/logrus"
 )
 

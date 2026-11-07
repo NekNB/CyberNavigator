@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"errors"
 
-	articleService "github.com/NekNB/CyberNavigate/backend/article-service/internal/services/article"
-	"github.com/NekNB/CyberNavigate/backend/article-service/internal/storage"
-	"github.com/NekNB/CyberNavigate/swagger/gen/article"
+	articleService "github.com/NekNB/CyberNavigator/backend/article-service/internal/services/article"
+	"github.com/NekNB/CyberNavigator/backend/article-service/internal/storage"
+	"github.com/NekNB/CyberNavigator/swagger/gen/article"
 	"github.com/lib/pq"
 	"github.com/lib/pq/pqerror"
 	"github.com/sirupsen/logrus"

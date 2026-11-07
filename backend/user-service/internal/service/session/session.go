@@ -8,11 +8,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/config"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/domain/models"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/http"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/lib/keys"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/storage"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/config"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/domain/models"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/http"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/lib/keys"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/storage"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/sirupsen/logrus"
 )

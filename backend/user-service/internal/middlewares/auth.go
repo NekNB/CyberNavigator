@@ -1,8 +1,8 @@
 package middlewares
 
 import (
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/config"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/service/session"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/config"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/service/session"
 	"github.com/gofiber/fiber/v3"
 )
 

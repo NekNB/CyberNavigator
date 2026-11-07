@@ -5,9 +5,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/NekNB/CyberNavigate/backend/gateway-server/internal/app"
-	"github.com/NekNB/CyberNavigate/backend/gateway-server/internal/config"
-	"github.com/NekNB/CyberNavigate/backend/gateway-server/internal/lib/logger"
+	"github.com/NekNB/CyberNavigator/backend/gateway-server/internal/app"
+	"github.com/NekNB/CyberNavigator/backend/gateway-server/internal/config"
+	"github.com/NekNB/CyberNavigator/backend/gateway-server/internal/lib/logger"
 )
 
 func main() {

@@ -1,28 +1,25 @@
-#!/bin/bash
+use std/dirs
 
-# Получаем директорию проекта (на два уровня выше текущего скрипта)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
-workspaceFolder="$(dirname "$SCRIPT_DIR")"
+def main [] {
+    dirs add "../secrets"
+    mkdir env
+    ls ./templates/*.template.env | each {|file| process-file $file}
+    dirs drop    
+    print "Готово"
+}
 
-# Ищем все файлы *.tmp.env рекурсивно в папке secrets/templates
-# -print0 и read -d '' используются для безопасной обработки путей с пробелами
-find "$workspaceFolder/secrets/templates" -type f -name "*.tmp.env" -print0 | while IFS= read -r -d '' file; do
-
-    # Заменяем .tmp.env -> .env (отрезаем суффикс и добавляем .env)
-    newFilePath="${file%.tmp.env}.env"
-
-    # Заменяем /templates/ -> /env/ (глобальная замена в строке)
-    # Экранируем слэши, чтобы не конфликтовать с разделителем replace
-    newFilePath="${newFilePath//\/templates\//\/env\/}"
-
-    # Создаем директорию для файла, если её нет
-    newDir="$(dirname "$newFilePath")"
-    mkdir -p "$newDir"
-
-    # Копируем файл
-    cp "$file" "$newFilePath"
-
-    echo "Создан: $newFilePath"
-done
-
-echo "Готово"
+def process-file [file: record<name: string, type: string, size: filesize, modified: datetime>] {
+    try {
+        let NewName = $"($file.name | parse "templates\\{name}.template.env" | get name.0).env"
+        let NewFilePath = $"./env/($NewName)"
+        if not ($NewFilePath | path exists) {
+            cp -n $file.name $NewFilePath
+            print $"($NewName) (ansi green)created(ansi reset)"
+        } else {
+            print $"($NewName) (ansi y)already exists(ansi reset)"
+        }
+    } catch {
+        |err|
+        print $"(ansi r)ERROR: ($err)(ansi reset)" 
+    } 
+}

@@ -8,7 +8,7 @@ import (
 )
 
 // ServerUrlInternalDockerAPIGatewayServer defines the Server URL for Internal Docker API Gateway Server
-const ServerUrlInternalDockerAPIGatewayServer = "http://cyber-navigate_gateway-server/api/v1"
+const ServerUrlInternalDockerAPIGatewayServer = "http://cyber-navigator_gateway-server/api/v1"
 
 // ServerUrlLocalAPIGatewayServer defines the Server URL for Local API Gateway Server
 const ServerUrlLocalAPIGatewayServer = "http://127.0.0.1:9080/api/v1"

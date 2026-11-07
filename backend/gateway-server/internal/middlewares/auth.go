@@ -3,9 +3,9 @@ package middlewares
 import (
 	"crypto/rsa"
 
-	"github.com/NekNB/CyberNavigate/backend/gateway-server/internal/config"
-	"github.com/NekNB/CyberNavigate/backend/gateway-server/internal/lib/parser"
-	"github.com/NekNB/CyberNavigate/backend/gateway-server/internal/lib/token"
+	"github.com/NekNB/CyberNavigator/backend/gateway-server/internal/config"
+	"github.com/NekNB/CyberNavigator/backend/gateway-server/internal/lib/parser"
+	"github.com/NekNB/CyberNavigator/backend/gateway-server/internal/lib/token"
 	"github.com/gofiber/fiber/v3"
 	"github.com/sirupsen/logrus"
 )

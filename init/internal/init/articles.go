@@ -7,9 +7,9 @@ import (
 	"path"
 	"strings"
 
-	"github.com/NekNB/CyberNavigate/init/internal/assets"
-	"github.com/NekNB/CyberNavigate/init/internal/http"
-	"github.com/NekNB/CyberNavigate/init/internal/models"
+	"github.com/NekNB/CyberNavigator/init/internal/assets"
+	"github.com/NekNB/CyberNavigator/init/internal/http"
+	"github.com/NekNB/CyberNavigator/init/internal/models"
 	"github.com/sirupsen/logrus"
 
 	"github.com/yuin/goldmark"

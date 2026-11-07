@@ -4,15 +4,15 @@ import (
 	"crypto/tls"
 	"fmt"
 
-	tlsconfig "github.com/NekNB/CyberNavigate/backend/simulator-service/internal/app/tls"
-	"github.com/NekNB/CyberNavigate/backend/simulator-service/internal/assets"
-	"github.com/NekNB/CyberNavigate/backend/simulator-service/internal/config"
-	simulatorAPI "github.com/NekNB/CyberNavigate/backend/simulator-service/internal/http"
-	simulatorService "github.com/NekNB/CyberNavigate/backend/simulator-service/internal/services/simulator"
+	tlsconfig "github.com/NekNB/CyberNavigator/backend/simulator-service/internal/app/tls"
+	"github.com/NekNB/CyberNavigator/backend/simulator-service/internal/assets"
+	"github.com/NekNB/CyberNavigator/backend/simulator-service/internal/config"
+	simulatorAPI "github.com/NekNB/CyberNavigator/backend/simulator-service/internal/http"
+	simulatorService "github.com/NekNB/CyberNavigator/backend/simulator-service/internal/services/simulator"
 
-	"github.com/NekNB/CyberNavigate/backend/simulator-service/internal/storage/postgres"
-	"github.com/NekNB/CyberNavigate/swagger"
-	"github.com/NekNB/CyberNavigate/swagger/gen/simulator"
+	"github.com/NekNB/CyberNavigator/backend/simulator-service/internal/storage/postgres"
+	"github.com/NekNB/CyberNavigator/swagger"
+	"github.com/NekNB/CyberNavigator/swagger/gen/simulator"
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/middleware/logger"

@@ -4,7 +4,7 @@ import (
 	"io/fs"
 	"net/http"
 
-	"github.com/NekNB/CyberNavigate/swagger"
+	"github.com/NekNB/CyberNavigator/swagger"
 )
 
 func NewSpecs() http.Handler {

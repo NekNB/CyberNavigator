@@ -1,6 +1,6 @@
-# CyberNavigate
+# CyberNavigator
 
-CyberNavigate - это симулятор мошеннических схем
+CyberNavigator - это симулятор мошеннических схем
 
 Требуется:
 Docker Swarm

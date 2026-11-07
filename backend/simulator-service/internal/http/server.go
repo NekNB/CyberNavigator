@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"errors"
 
-	"github.com/NekNB/CyberNavigate/backend/simulator-service/internal/storage"
-	"github.com/NekNB/CyberNavigate/swagger/gen/simulator"
+	"github.com/NekNB/CyberNavigator/backend/simulator-service/internal/storage"
+	"github.com/NekNB/CyberNavigator/swagger/gen/simulator"
 	"github.com/gofiber/fiber/v3"
 	"github.com/sirupsen/logrus"
 )

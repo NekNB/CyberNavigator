@@ -9,7 +9,7 @@ import (
 	"crypto/x509"
 	"os"
 
-	"github.com/NekNB/CyberNavigate/backend/gateway-server/internal/config"
+	"github.com/NekNB/CyberNavigator/backend/gateway-server/internal/config"
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/middleware/proxy"
 	"github.com/sirupsen/logrus"

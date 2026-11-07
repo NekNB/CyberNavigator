@@ -22,7 +22,7 @@ server:
     - simulator:
         path: /api/v1/simulators
         protocol: http
-        host: cyber-navigate_simulator-service
+        host: cyber-navigator_simulator-service
         port: 8000
 ```
 

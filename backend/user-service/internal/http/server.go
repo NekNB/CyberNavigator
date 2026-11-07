@@ -3,11 +3,11 @@ package http
 import (
 	"errors"
 
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/config"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/domain/models"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/service"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/storage"
-	"github.com/NekNB/CyberNavigate/swagger/gen/user"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/config"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/domain/models"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/service"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/storage"
+	"github.com/NekNB/CyberNavigator/swagger/gen/user"
 	"github.com/gofiber/fiber/v3"
 	"github.com/oapi-codegen/runtime/types"
 	"github.com/sirupsen/logrus"

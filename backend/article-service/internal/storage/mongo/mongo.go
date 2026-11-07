@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	articleService "github.com/NekNB/CyberNavigate/backend/article-service/internal/services/article"
+	articleService "github.com/NekNB/CyberNavigator/backend/article-service/internal/services/article"
 	"github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

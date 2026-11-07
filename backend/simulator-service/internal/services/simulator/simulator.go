@@ -1,10 +1,10 @@
 package simulator
 
 import (
-	"github.com/NekNB/CyberNavigate/backend/simulator-service/internal/http"
-	"github.com/NekNB/CyberNavigate/backend/simulator-service/internal/lib/convert"
-	"github.com/NekNB/CyberNavigate/backend/simulator-service/internal/models"
-	"github.com/NekNB/CyberNavigate/swagger/gen/simulator"
+	"github.com/NekNB/CyberNavigator/backend/simulator-service/internal/http"
+	"github.com/NekNB/CyberNavigator/backend/simulator-service/internal/lib/convert"
+	"github.com/NekNB/CyberNavigator/backend/simulator-service/internal/models"
+	"github.com/NekNB/CyberNavigator/swagger/gen/simulator"
 
 	"github.com/google/uuid"
 	"github.com/oapi-codegen/runtime/types"

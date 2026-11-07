@@ -4,10 +4,10 @@ import (
 	"database/sql"
 	"errors"
 
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/domain/models"
-	sessionService "github.com/NekNB/CyberNavigate/backend/user-service/internal/service/session"
-	userService "github.com/NekNB/CyberNavigate/backend/user-service/internal/service/user"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/storage"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/domain/models"
+	sessionService "github.com/NekNB/CyberNavigator/backend/user-service/internal/service/session"
+	userService "github.com/NekNB/CyberNavigator/backend/user-service/internal/service/user"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/storage"
 
 	"github.com/lib/pq"
 	"github.com/lib/pq/pqerror"

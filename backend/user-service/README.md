@@ -23,7 +23,7 @@ server:
     - user:
         path: /api/v1/users
         protocol: http
-        host: cyber-navigate_user-service
+        host: cyber-navigator_user-service
         port: 8000
 ```
 

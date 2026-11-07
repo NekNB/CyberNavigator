@@ -3,12 +3,12 @@ package article
 import (
 	"errors"
 
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/domain/models"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/http"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/lib/hash"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/service"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/service/session"
-	"github.com/NekNB/CyberNavigate/backend/user-service/internal/storage"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/domain/models"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/http"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/lib/hash"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/service"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/service/session"
+	"github.com/NekNB/CyberNavigator/backend/user-service/internal/storage"
 	"github.com/sirupsen/logrus"
 )
 

@@ -7,7 +7,7 @@ http:
 storages:
   postgres:
     database: simulator_service_db
-    host: cyber-navigate_postgres
+    host: cyber-navigator_postgres
     port: 5432
     user: simulator_service_role
 

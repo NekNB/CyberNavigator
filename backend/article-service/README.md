@@ -24,7 +24,7 @@ server:
     - article:
         path: /api/v1/articles
         protocol: http
-        host: cyber-navigate_article-service
+        host: cyber-navigator_article-service
         port: 8000
 ```
 

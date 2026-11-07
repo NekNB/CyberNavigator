@@ -1,4 +1,4 @@
-module github.com/NekNB/CyberNavigate/swagger
+module github.com/NekNB/CyberNavigator/swagger
 
 go 1.26.2
 

@@ -1,4 +1,4 @@
-module github.com/NekNB/CyberNavigate/init
+module github.com/NekNB/CyberNavigator/init
 
 go 1.26.2
 
@@ -8,7 +8,7 @@ require (
 )
 
 require (
-	github.com/NekNB/CyberNavigate/swagger v0.0.0-20260804211717-12ac159f9eb1 // indirect
+	github.com/NekNB/CyberNavigator/swagger v0.0.0-20260804211717-12ac159f9eb1 // indirect
 	github.com/andybalholm/brotli v1.2.2 // indirect
 	github.com/apapsch/go-jsonmerge/v2 v2.0.0 // indirect
 	github.com/gofiber/fiber/v3 v3.2.0 // indirect

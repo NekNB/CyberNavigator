@@ -4,9 +4,9 @@ import (
 	"context"
 	"errors"
 
-	"github.com/NekNB/CyberNavigate/backend/article-service/internal/http"
-	"github.com/NekNB/CyberNavigate/backend/article-service/internal/storage"
-	"github.com/NekNB/CyberNavigate/swagger/gen/article"
+	"github.com/NekNB/CyberNavigator/backend/article-service/internal/http"
+	"github.com/NekNB/CyberNavigator/backend/article-service/internal/storage"
+	"github.com/NekNB/CyberNavigator/swagger/gen/article"
 	"github.com/gosimple/slug"
 	"github.com/sirupsen/logrus"
 )

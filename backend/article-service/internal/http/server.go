@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"uuid"
 
-	"github.com/NekNB/CyberNavigate/backend/article-service/internal/storage"
-	"github.com/NekNB/CyberNavigate/swagger/gen/article"
+	"github.com/NekNB/CyberNavigator/backend/article-service/internal/storage"
+	"github.com/NekNB/CyberNavigator/swagger/gen/article"
 	"github.com/sirupsen/logrus"
 
 	"github.com/gofiber/fiber/v3"

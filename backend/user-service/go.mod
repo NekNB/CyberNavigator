@@ -1,9 +1,9 @@
-module github.com/NekNB/CyberNavigate/backend/user-service
+module github.com/NekNB/CyberNavigator/backend/user-service
 
 go 1.26.2
 
 require (
-	github.com/NekNB/CyberNavigate/swagger v0.0.0-20260726173518-7019cb482795
+	github.com/NekNB/CyberNavigator/swagger v0.0.0-20260726173518-7019cb482795
 	github.com/gofiber/fiber/v3 v3.2.0
 	github.com/ilyakaznacheev/cleanenv v1.5.0
 	github.com/lib/pq v1.12.3

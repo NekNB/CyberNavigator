@@ -1,7 +1,7 @@
 openapi: 3.2.0
 
 info:
-  title: API CyberNavigate
+  title: API CyberNavigator
   version: "1.0"
   description: |
     API сервиса пользователей с авторизацией по username/password.
@@ -13,7 +13,7 @@ servers:
     description: Local API Gateway Server
   - url: http://127.0.0.1:8000/api/v1
     description: Local Service
-  - url: http://cyber-navigate_gateway-server/api/v1
+  - url: http://cyber-navigator_gateway-server/api/v1
     description: Internal Docker API Gateway Server
 security: []
 

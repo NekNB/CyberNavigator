@@ -5,7 +5,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/NekNB/CyberNavigate/init/internal/http"
+	"github.com/NekNB/CyberNavigator/init/internal/http"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v3"
 )

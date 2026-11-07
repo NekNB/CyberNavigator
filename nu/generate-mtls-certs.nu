@@ -1,9 +1,3 @@
-#!/bin/bash
-
-# generate-mtls-certs.sh
-
-
-
 # --- Основной скрипт ---
 def main [
     CertsPath?: string = "../secrets/certs"
@@ -11,9 +5,8 @@ def main [
 ] {
 
     # Проверка наличия openssl
-    if (which openssl | is-empty) {
-        print $"(ansi r)ERROR: OpenSSL not found"
-        exit 1
+      if (which openssl | is-empty) {
+        print $"(ansi red) ERROR: openssl not available. Check $env.PATH(ansi reset)"
     }
 
     # Создаем корневую папку для сертификатов
@@ -28,7 +21,7 @@ def main [
         ^openssl req -x509 -new -nodes -key $CAKeyPath -sha256 -days 3650 -out $CACertPath -subj "/CN=Internal CA for Microservices" | ignore --stderr 
     }
 
-    print $"(ansi y)WARNING: ca-key.pem must be stored securely OFFLINE! Never commit to git"
+    print $"(ansi y)WARNING: ca-key.pem must be stored securely OFFLINE! Never commit to git(ansi reset)"
 
     # Массив сервисов
     let services = ["article-service" "user-service" "simulator-service"]
@@ -57,10 +50,10 @@ def main [
     cp -f $CACertPath $"($GatewayPath)/ca-cert.pem"
     rm -f $"($CertsPath)/ca-cert.srl"
 
-    print $"(ansi blue)Gateway certs (ansi green)generated"
-    print $"(ansi blue)Article-service certs (ansi green)generated"
-    print $"(ansi blue)User-service certs (ansi green)generated"
-    print $"(ansi blue)Simulator-service certs (ansi green)generated"
+    print $"(ansi blue)Gateway certs (ansi green)generated(ansi reset)"
+    print $"(ansi blue)Article-service certs (ansi green)generated(ansi reset)"
+    print $"(ansi blue)User-service certs (ansi green)generated(ansi reset)"
+    print $"(ansi blue)Simulator-service certs (ansi green)generated(ansi reset)"
 }
 
 
