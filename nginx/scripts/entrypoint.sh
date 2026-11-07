@@ -1,6 +1,6 @@
-#!/bin/bash
+# !/bin/bash
 set -e
-
+    
 # Пути к сертификатам
 CERT_PATH="/etc/letsencrypt/live/xn----8sbabhgkwfn1brsi2a.xn--p1ai/fullchain.pem"
 

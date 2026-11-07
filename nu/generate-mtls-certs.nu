@@ -96,14 +96,14 @@ DNS.3 = *.local
     ^openssl req -new -key $ServiceKeyPath -out $CsrPath -config $SanConfigPath | ignore --stderr 
 
     let ServiceCertPath = $"($ServicePath)/server-cert.pem"
-    try { 
-        ^openssl x509 -req -in $CsrPath -CA $CACertPath -CAkey $CAKeyPath -CAcreateserial -out $ServiceCertPath -days $DaysValid -sha256 -extfile $SanConfigPath -extensions req_ext | ignore --stderr 
-        return 1
-    } catch {|err|
-        rm -f $CsrPath $SanConfigPath
-        cp -f $CACertPath $"($ServicePath)/ca-cert.pem"
-        return 0
-    }
+
+    ^openssl x509 -req -in $CsrPath -CA $CACertPath -CAkey $CAKeyPath -CAcreateserial -out $ServiceCertPath -days $DaysValid -sha256 -extfile $SanConfigPath -extensions req_ext | ignore --stderr 
+
+
+    rm -f $CsrPath $SanConfigPath
+    cp -f $CACertPath $"($ServicePath)/ca-cert.pem"
+    return 0
+
 
 }
 

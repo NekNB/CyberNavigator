@@ -12,4 +12,4 @@ RUN chmod +x /entrypoint.sh
 COPY /nginx/conf/nginx-http.conf /etc/nginx/configs/nginx-http.conf
 COPY /nginx/conf/nginx-https.conf /etc/nginx/configs/nginx-https.conf
 
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["./entrypoint.sh"]

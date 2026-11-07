@@ -30,12 +30,18 @@ export def push [
 	docker push $"neknarej/($DefaultProjectName)_($ServiceName):latest"
 }
 
-export def send [] {
-	$services | each {
-		|service|
-		build prod $service
-		tag $service
-		push $service
+export def send [serviceName?: string] {
+	if ($serviceName | is-empty) {
+		$services | each {
+			|service|
+			build prod $service
+			tag $service
+			push $service
+		}
+	} else {
+		build prod $serviceName
+		tag $serviceName
+		push $serviceName
 	}
 }
 
@@ -106,7 +112,7 @@ export def stop [service: string] {
 }
 
 export def update [service: string] {
-	^docker service update --force $"($DefaultProjectName)_($service)=0"
+	^docker service update --image $"neknarej/($DefaultProjectName)_($service):latest" --force $"($DefaultProjectName)_($service)" 
 }
 export def down [] {
 	^docker stack rm $DefaultProjectName
