@@ -125,7 +125,8 @@ export def init [] {
 export def fill [] {
 	let login = input "Login: "
 	let password = input -s "Password: "
-	let imageHash = ^docker build -q -f ./docker/init.dockerfile .
+	print "Image build..."
+	let imageHash = ^docker build -f ./docker/init.dockerfile .
 	^docker run --rm -it -e $'LOGIN="($login)"' -e $'PASSWORD="($password)"' --network "$($DefaultProjectName)_default" $imageHash
 	unlet $login $password
 }
