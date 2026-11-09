@@ -1,0 +1,145 @@
+services:
+  docker-cleanup:
+    image: docker:latest
+    command: >
+      sh -c "while true; do
+        docker container prune -f;
+        sleep 600;
+      done"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      mode: global
+      restart_policy:
+        condition: any
+     
+
+  nginx:
+    image: neknarej/cyber-navigator_prod_nginx:latest
+    ports:
+      - target: 80
+        published: 80
+        mode: host
+      - target: 443
+        published: 443
+        mode: host
+    volumes:
+      - certbot-www:/var/www/certbot
+      - certbot-certs:/etc/letsencrypt
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+    depends_on:
+      - frontend
+      - gateway-server
+
+  gateway-server:
+    image: neknarej/cyber-navigator_prod_gateway-server:latest
+    ports:
+      - target: 443
+        
+        published: 9443
+        protocol: tcp
+        mode: host
+      - target: 80
+        
+        published: 9080
+        protocol: tcp
+        mode: host
+        
+  mongo:
+    image: neknarej/cyber-navigator_prod_mongo:latest
+    ports:
+      - target: 27017
+        
+        published: 27017
+        protocol: tcp
+        mode: host
+    secrets:
+      - source: mongo_secret
+        target: mongo_secret
+    deploy:
+      replicas: 1
+    volumes:
+      - mongo_data:/data/db
+
+  frontend:
+    image: neknarej/cyber-navigator_prod_frontend:latest
+    ports:
+      - target: 3000
+        
+        published: 3777
+        protocol: tcp
+        mode: host
+    depends_on: 
+      - gateway-server
+
+
+  postgres:
+    image: neknarej/cyber-navigator_prod_postgres:latest
+    ports:
+      - target: 5432
+        
+        published: 5777
+        protocol: tcp
+        mode: host
+    volumes:
+      - postgres_data:/var/lib/postgresql/
+    secrets:
+      - source: postgres_secret
+        target: postgres_secret
+    deploy:
+      replicas: 1
+
+  article-service:
+    image: neknarej/cyber-navigator_prod_article-service:latest
+    secrets:
+      - source: article_service_secret
+        target: article_service_secret
+
+    depends_on:
+      - postgres
+      - mongo
+  user-service:
+    image: neknarej/cyber-navigator_prod_user-service:latest
+    secrets:
+      - source: user_service_secret
+        target: user_service_secret
+
+    depends_on:
+      - postgres
+  simulator-service:
+    image: neknarej/cyber-navigator_prod_simulator-service:latest
+    secrets:
+      - source: simulator_service_secret
+        target: simulator_service_secret
+
+    depends_on:
+      - postgres
+ 
+ 
+    
+
+
+volumes:
+  mongo_data:
+  postgres_data:
+  certbot-www:
+  certbot-certs:
+
+
+
+
+secrets:
+  postgres_secret:
+    external: true
+  mongo_secret:
+    external: true
+  article_service_secret:
+    external: true
+  user_service_secret:
+    external: true
+  simulator_service_secret:
+    external: true

@@ -1,5 +1,5 @@
-const DefaultDockerComposeFile = "docker-compose.yaml"
 const DefaultProjectName = "cyber-navigator"
+const DefaultDockerHub =  "neknarej"
 
 const services = [
 	"nginx",
@@ -15,47 +15,50 @@ export def build [
 	Environment: string
 	ServiceName: string
 ] {
-	^docker build -f $"./docker/($Environment)/($ServiceName).dockerfile" -t $"($DefaultProjectName)/($ServiceName)" .
+	^docker build -f $"./docker/($Environment)/($ServiceName).dockerfile" -t $"($DefaultProjectName)_($Environment)/($ServiceName)" .
 }
 
 export def tag [
+	Environment: string
 	ServiceName: string
 ] {
-	^docker tag $"cyber-navigator/($ServiceName):latest" $"neknarej/($DefaultProjectName)_($ServiceName):latest"
+	^docker tag $"($DefaultProjectName)_($Environment)/($ServiceName):latest" $"($DefaultDockerHub)/($DefaultProjectName)_($Environment)_($ServiceName):latest"
 }
 
 export def push [
+	Environment: string
 	ServiceName: string
 ] {
-	docker push $"neknarej/($DefaultProjectName)_($ServiceName):latest"
+	docker push $"($DefaultDockerHub)/($DefaultProjectName)_($Environment)_($ServiceName):latest"
 }
 
-export def send [serviceName?: string] {
-	if ($serviceName | is-empty) {
+export def send [Environment: string ServiceName?: string] {
+	if ($ServiceName | is-empty) {
 		$services | each {
 			|service|
-			build prod $service
-			tag $service
-			push $service
+			build $Environment $service
+			tag $Environment $service
+			push $Environment $service
 		}
 	} else {
-		build prod $serviceName
-		tag $serviceName
-		push $serviceName
+		build $Environment $ServiceName
+		tag $Environment $ServiceName
+		push $Environment $ServiceName
 	}
 }
 
-export def up [] {
+export def up [Environment: string ProjectName: string = $DefaultProjectName] {
 	secrets-update
-	deploy
+	deploy $Environment $ProjectName
 }
 
 
 export def deploy [
-	DockerComposeFile: string = $DefaultDockerComposeFile
+	Environment: string
 	ProjectName: string = $DefaultProjectName
 ] {
-	^docker stack deploy -c $DockerComposeFile $ProjectName
+	print $"(ansi y)WARNING: Deployment ($Environment) environment(ansi reset)"
+	^docker stack deploy -c $"compose.($Environment).yaml" $ProjectName
 }
 
 export def secrets-remove [] {
@@ -84,7 +87,7 @@ export def secrets-create [] {
 	ls ./secrets/env/*secret.env | get name | each {
 		|secret|
 		let secretName = $"($secret | parse "secrets\\env\\{serviceName}.{_}.{_}" | get serviceName.0)_secret"
-		# print $secretName $secret
+		
 		let result  = (do {^docker secret create $secretName $secret} | complete )
 		if $result.exit_code != 0 {
 			let secretAlreadyExists = $result.stderr | find $"secret ($secretName) already exists" | get 0 | ansi strip
@@ -109,8 +112,8 @@ export def stop [service: string] {
 	^docker service scale $"($DefaultProjectName)_($service)=0"
 }
 
-export def update [service: string] {
-	^docker service update --image $"neknarej/($DefaultProjectName)_($service):latest" --force $"($DefaultProjectName)_($service)" 
+export def update [service: string Environment: string] {
+	^docker service update --image $"neknarej/($DefaultProjectName)_($Environment)_($service):latest" --force $"($DefaultProjectName)_($service)" 
 }
 export def down [] {
 	^docker stack rm $DefaultProjectName
@@ -126,7 +129,7 @@ export def fill [] {
 	let login = input "Login: "
 	let password = input -s "Password: "
 	print "Image build..."
-	let imageHash = ^docker build -f ./docker/init.dockerfile .
-	^docker run --rm -it -e $'LOGIN="($login)"' -e $'PASSWORD="($password)"' --network "$($DefaultProjectName)_default" $imageHash
+	let imageHash = ^docker build -q -f ./docker/workers/fill.dockerfile .
+	^docker service create --mode replicated-job -e $'BASE_URL=https://cyber-navigator_gateway-server/api/v1' -e $'LOGIN=($login)' -e $'PASSWORD=($password)' --network $"($DefaultProjectName)_default" $imageHash
 	unlet $login $password
 }
