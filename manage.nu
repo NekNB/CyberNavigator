@@ -5,6 +5,7 @@ const services = [
 	"nginx",
 	"postgres",
 	"mongo",
+	"frontend",
 	"article-service",
 	"user-service",
 	"simulator-service",
