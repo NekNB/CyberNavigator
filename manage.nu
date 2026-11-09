@@ -131,6 +131,7 @@ export def fill [] {
 	let password = input -s "Password: "
 	print "Image build..."
 	let imageHash = ^docker build -q -f ./docker/workers/fill.dockerfile .
-	^docker service create --mode replicated-job -e $'BASE_URL=https://cyber-navigator_gateway-server/api/v1' -e $'LOGIN=($login)' -e $'PASSWORD=($password)' --network $"($DefaultProjectName)_default" $imageHash
+	^docker service create --name fill-worker --mode replicated-job -e $'BASE_URL=https://cyber-navigator_gateway-server/api/v1' -e $'LOGIN=($login)' -e $'PASSWORD=($password)' --network $"($DefaultProjectName)_default" $imageHash
 	unlet $login $password
+	^docker service rm fill-worker
 }
