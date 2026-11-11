@@ -31,6 +31,7 @@ if [ ! -f "$CERT_PATH" ]; then
         --non-interactive \
         -d xn----8sbabhgkwfn1brsi2a.xn--p1ai \
         -d api.xn----8sbabhgkwfn1brsi2a.xn--p1ai \
+        -d arcane.xn----8sbabhgkwfn1brsi2a.xn--p1ai \
         -d www.xn----8sbabhgkwfn1brsi2a.xn--p1ai
 
     # Заменяем конфиг Nginx на версию с HTTPS

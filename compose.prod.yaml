@@ -12,8 +12,25 @@ services:
       mode: global
       restart_policy:
         condition: any
-     
-
+    
+  arcane:
+    image: ghcr.io/getarcaneapp/manager:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - arcane-data:/app/data
+      - /opt/docker:/opt/docker
+    environment:
+      - APP_URL=https://arcane.xn----8sbabhgkwfn1brsi2a.xn--p1ai/
+      - PUID=1000
+      - PGID=1000
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - PROJECT_DIRECTORY=/opt/docker
+    restart: unless-stopped
+    deploy:
+      mode: global
+      restart_policy:
+        condition: any
+    
   nginx:
     image: neknarej/cyber-navigator_prod_nginx:latest
     ports:
@@ -37,23 +54,11 @@ services:
 
   gateway-server:
     image: neknarej/cyber-navigator_prod_gateway-server:latest
-    ports:
-      - target: 443
-        
-        published: 9443
-        protocol: tcp
-        mode: host
-      - target: 80
-        
-        published: 9080
-        protocol: tcp
-        mode: host
         
   mongo:
     image: neknarej/cyber-navigator_prod_mongo:latest
     ports:
-      - target: 27017
-        
+      - target: 27017    
         published: 27017
         protocol: tcp
         mode: host
@@ -67,15 +72,6 @@ services:
 
   frontend:
     image: neknarej/cyber-navigator_prod_frontend:latest
-    ports:
-      - target: 3000
-        
-        published: 3777
-        protocol: tcp
-        mode: host
-    depends_on: 
-      - gateway-server
-
 
   postgres:
     image: neknarej/cyber-navigator_prod_postgres:latest
@@ -98,24 +94,23 @@ services:
     secrets:
       - source: article_service_secret
         target: article_service_secret
-
     depends_on:
       - postgres
       - mongo
+
   user-service:
     image: neknarej/cyber-navigator_prod_user-service:latest
     secrets:
       - source: user_service_secret
         target: user_service_secret
-
     depends_on:
       - postgres
+
   simulator-service:
     image: neknarej/cyber-navigator_prod_simulator-service:latest
     secrets:
       - source: simulator_service_secret
         target: simulator_service_secret
-
     depends_on:
       - postgres
  
@@ -128,6 +123,7 @@ volumes:
   postgres_data:
   certbot-www:
   certbot-certs:
+  arcane-data:
 
 
 
